@@ -71,5 +71,5 @@ The service reports "ok" while its cache is at 95% eviction and database queries
 ## Related Patterns
 
 - [Pattern 1: Machine-Readable Manifest](../patterns/01-manifest.md) — The manifest should reference the health endpoint and declare which components are monitored. The health endpoint is part of the service's self-description.
-- [Pattern 8: Warnings and Quality Gates](../patterns/08-warnings-quality.md) — Health status is an infrastructure-level quality gate. A `degraded` health status on a dependency should propagate as a warning in responses that depend on that component.
-- [Pattern 9: Infrastructure Error Wrapping](../patterns/09-infra-errors.md) — When a component is `down`, errors originating from that component should be wrapped in the standard format with the component identified — not returned as raw connection errors.
+- [Pattern 8: Warnings and Quality Gates](../patterns/08-warnings-quality-gates.md) — Health status is an infrastructure-level quality gate. A `degraded` health status on a dependency should propagate as a warning in responses that depend on that component.
+- [Pattern 9: Infrastructure Error Wrapping](../patterns/09-infrastructure-error-wrapping.md) — When a component is `down`, errors originating from that component should be wrapped in the standard format with the component identified — not returned as raw connection errors.

@@ -74,6 +74,6 @@ Between fetching page 5 and page 6, 3 new events were inserted. Page 6 now conta
 
 ## Related Patterns
 
-- [Pattern 2: HATEOAS Navigation](../patterns/02-hateoas.md) — Pagination links (`next`, `first`, `self`) are a direct application of HATEOAS — the consumer follows links rather than constructing URLs.
-- [Pattern 6: Self-Describing Endpoints](../patterns/06-json-schema.md) — The `inputSchema` for paginated endpoints should declare `cursor` and `limit` as parameters with their types and constraints.
+- [Pattern 2: HATEOAS Navigation](../patterns/02-hateoas-navigation.md) — Pagination links (`next`, `first`, `self`) are a direct application of HATEOAS — the consumer follows links rather than constructing URLs.
+- [Pattern 6: Self-Describing Endpoints](../patterns/06-self-describing-endpoints.md) — The `inputSchema` for paginated endpoints should declare `cursor` and `limit` as parameters with their types and constraints.
 - [Pattern 7: Canonical Parameter Naming](../patterns/07-canonical-naming.md) — Use `cursor` and `limit` consistently, not `page_token`, `offset`, `per_page`, or `page_size` interchangeably.

@@ -97,5 +97,5 @@ The client does not know whether the computation started, completed, or failed. 
 
 - [Pattern 1: Machine-Readable Manifest](../patterns/01-manifest.md) — The manifest should declare which endpoints support async operations and their typical duration ranges.
 - [Pattern 3: Standard Error Format](../patterns/03-error-format.md) — Failed jobs return errors in the standard format via the polling endpoint, not as raw 500s.
-- [Pattern 8: Warnings and Quality Gates](../patterns/08-warnings-quality.md) — Completed async jobs should include quality signals on the results — the consumer needs to know whether the output meets thresholds, not just that it finished.
+- [Pattern 8: Warnings and Quality Gates](../patterns/08-warnings-quality-gates.md) — Completed async jobs should include quality signals on the results — the consumer needs to know whether the output meets thresholds, not just that it finished.
 - [Pattern 17: Idempotent Writes](../patterns/17-idempotent-writes.md) — Idempotency keys prevent duplicate job creation when the initial 202 response is lost to a network failure.

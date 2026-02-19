@@ -67,5 +67,5 @@ No version header. No changelog. Last week this field was called `balance`. Ever
 ## Related Patterns
 
 - [Pattern 1: Machine-Readable Manifest](../patterns/01-manifest.md) — The manifest is where `schema_changelog` and `deprecations` live. Without a manifest, there is no home for version metadata.
-- [Pattern 6: Self-Describing Endpoints](../patterns/06-json-schema.md) — Schema versioning tells you WHEN the schema changed. Pattern 6 tells you WHAT the current schema looks like. Both are needed — one without the other is incomplete.
-- [Pattern 12: Legacy Path Handling](../patterns/12-legacy-paths.md) — Schema versioning handles structural changes within an endpoint. Legacy path handling covers the case where the endpoint itself moves.
+- [Pattern 6: Self-Describing Endpoints](../patterns/06-self-describing-endpoints.md) — Schema versioning tells you WHEN the schema changed. Pattern 6 tells you WHAT the current schema looks like. Both are needed — one without the other is incomplete.
+- [Pattern 12: Legacy Path Handling](../patterns/12-legacy-path-handling.md) — Schema versioning handles structural changes within an endpoint. Legacy path handling covers the case where the endpoint itself moves.

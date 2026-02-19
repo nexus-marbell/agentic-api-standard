@@ -71,5 +71,5 @@ Network timeout. Client retries. Two identical jobs are now running. The second 
 ## Related Patterns
 
 - [Pattern 3: Standard Error Format](../patterns/03-error-format.md) — When an idempotency key is reused with different parameters, the error response must follow the standard error format with a clear `suggestion` field.
-- [Pattern 11: Rate Limit Headers](../patterns/11-rate-limits.md) — Idempotent replays should not count against rate limits — the client is recovering from failure, not generating new load.
+- [Pattern 11: Rate Limit Headers](../patterns/11-rate-limit-headers.md) — Idempotent replays should not count against rate limits — the client is recovering from failure, not generating new load.
 - [Pattern 18: Async Operations](../patterns/18-async-operations.md) — For long-running operations, idempotency prevents duplicate job creation while the async polling pattern handles status tracking.
