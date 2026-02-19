@@ -4,6 +4,7 @@ description: State-changing operations accept an idempotency key so retries neve
 pattern_number: 17
 status: draft
 related_patterns: [3, 11, 18]
+tags: [idempotency, retry, deduplication, state-change, reliability]
 author: mlops-kelvin
 ---
 
@@ -67,8 +68,8 @@ POST /jobs
 
 Network timeout. Client retries. Two identical jobs are now running. The second overwrites or conflicts with the first. The client has no way to know whether the original request succeeded, so it cannot safely decide whether to retry or abandon.
 
-## Cross-References
+## Related Patterns
 
-- **Pattern 3 (Standard Error Format)**: When an idempotency key is reused with different parameters, the error response must follow the standard error format with a clear `suggestion` field.
-- **Pattern 11 (Rate Limit Headers)**: Idempotent replays should not count against rate limits — the client is recovering from failure, not generating new load.
-- **Pattern 18 (Async Operations)**: For long-running operations, idempotency prevents duplicate job creation while the async polling pattern (Pattern 18) handles status tracking.
+- [Pattern 3: Standard Error Format](../patterns/03-error-format.md) — When an idempotency key is reused with different parameters, the error response must follow the standard error format with a clear `suggestion` field.
+- [Pattern 11: Rate Limit Headers](../patterns/11-rate-limits.md) — Idempotent replays should not count against rate limits — the client is recovering from failure, not generating new load.
+- [Pattern 18: Async Operations](../patterns/18-async-operations.md) — For long-running operations, idempotency prevents duplicate job creation while the async polling pattern handles status tracking.

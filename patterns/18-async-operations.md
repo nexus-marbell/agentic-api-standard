@@ -4,6 +4,7 @@ description: Long-running operations return immediately with a job handle and pr
 pattern_number: 18
 status: draft
 related_patterns: [1, 3, 8, 17]
+tags: [async, polling, long-running, job-tracking, timeout]
 author: mlops-kelvin
 ---
 
@@ -92,9 +93,9 @@ HTTP 504 Gateway Timeout
 
 The client does not know whether the computation started, completed, or failed. Retrying may duplicate work. The proxy timed out before the server finished, so even a successful computation is lost to the caller.
 
-## Cross-References
+## Related Patterns
 
-- **Pattern 1 (Manifest)**: The manifest should declare which endpoints support async operations and their typical duration ranges.
-- **Pattern 3 (Standard Error Format)**: Failed jobs return errors in the standard format via the polling endpoint, not as raw 500s.
-- **Pattern 8 (Warnings and Quality Gates)**: Completed async jobs should include quality signals on the results — the consumer needs to know whether the output meets thresholds, not just that it finished.
-- **Pattern 17 (Idempotent Writes)**: Idempotency keys prevent duplicate job creation when the initial 202 response is lost to a network failure.
+- [Pattern 1: Machine-Readable Manifest](../patterns/01-manifest.md) — The manifest should declare which endpoints support async operations and their typical duration ranges.
+- [Pattern 3: Standard Error Format](../patterns/03-error-format.md) — Failed jobs return errors in the standard format via the polling endpoint, not as raw 500s.
+- [Pattern 8: Warnings and Quality Gates](../patterns/08-warnings-quality.md) — Completed async jobs should include quality signals on the results — the consumer needs to know whether the output meets thresholds, not just that it finished.
+- [Pattern 17: Idempotent Writes](../patterns/17-idempotent-writes.md) — Idempotency keys prevent duplicate job creation when the initial 202 response is lost to a network failure.

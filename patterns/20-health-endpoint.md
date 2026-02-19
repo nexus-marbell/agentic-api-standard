@@ -4,6 +4,7 @@ description: Every service exposes a structured health endpoint reporting per-co
 pattern_number: 20
 status: draft
 related_patterns: [1, 8, 9]
+tags: [health, monitoring, status, degraded, components]
 author: mlops-kelvin
 ---
 
@@ -67,8 +68,8 @@ GET /health
 
 The service reports "ok" while its cache is at 95% eviction and database queries are timing out at 5 seconds. Every consumer trusts the health check, sends traffic, and discovers the degradation only when their own requests fail. The health check was not wrong — it was uninformative. The difference between "operational" and "degraded" is the difference between routing traffic and triggering failover.
 
-## Cross-References
+## Related Patterns
 
-- **Pattern 1 (Manifest)**: The manifest should reference the health endpoint and declare which components are monitored. The health endpoint is part of the service's self-description.
-- **Pattern 8 (Warnings and Quality Gates)**: Health status is an infrastructure-level quality gate. A `degraded` health status on a dependency should propagate as a warning in responses that depend on that component.
-- **Pattern 9 (Infrastructure Error Wrapping)**: When a component is `down`, errors originating from that component should be wrapped in the standard format with the component identified — not returned as raw connection errors.
+- [Pattern 1: Machine-Readable Manifest](../patterns/01-manifest.md) — The manifest should reference the health endpoint and declare which components are monitored. The health endpoint is part of the service's self-description.
+- [Pattern 8: Warnings and Quality Gates](../patterns/08-warnings-quality.md) — Health status is an infrastructure-level quality gate. A `degraded` health status on a dependency should propagate as a warning in responses that depend on that component.
+- [Pattern 9: Infrastructure Error Wrapping](../patterns/09-infra-errors.md) — When a component is `down`, errors originating from that component should be wrapped in the standard format with the component identified — not returned as raw connection errors.

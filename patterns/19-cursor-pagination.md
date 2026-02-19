@@ -4,6 +4,7 @@ description: Large result sets use opaque cursor tokens instead of page numbers 
 pattern_number: 19
 status: draft
 related_patterns: [2, 6, 7]
+tags: [pagination, cursor, large-datasets, concurrent-writes, traversal]
 author: mlops-kelvin
 ---
 
@@ -71,8 +72,8 @@ GET /events?page=5&per_page=100
 
 Between fetching page 5 and page 6, 3 new events were inserted. Page 6 now contains 2 items that were already on page 5, and 1 item from the original page 6 is never seen. With offset pagination, every concurrent write silently corrupts the traversal. The consumer has no way to detect or recover from this.
 
-## Cross-References
+## Related Patterns
 
-- **Pattern 2 (HATEOAS Navigation)**: Pagination links (`next`, `first`, `self`) are a direct application of HATEOAS — the consumer follows links rather than constructing URLs.
-- **Pattern 6 (JSON Schema)**: The `inputSchema` for paginated endpoints should declare `cursor` and `limit` as parameters with their types and constraints.
-- **Pattern 7 (Canonical Naming)**: Use `cursor` and `limit` consistently, not `page_token`, `offset`, `per_page`, or `page_size` interchangeably.
+- [Pattern 2: HATEOAS Navigation](../patterns/02-hateoas.md) — Pagination links (`next`, `first`, `self`) are a direct application of HATEOAS — the consumer follows links rather than constructing URLs.
+- [Pattern 6: Self-Describing Endpoints](../patterns/06-json-schema.md) — The `inputSchema` for paginated endpoints should declare `cursor` and `limit` as parameters with their types and constraints.
+- [Pattern 7: Canonical Parameter Naming](../patterns/07-canonical-naming.md) — Use `cursor` and `limit` consistently, not `page_token`, `offset`, `per_page`, or `page_size` interchangeably.
