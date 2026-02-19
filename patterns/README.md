@@ -1,13 +1,13 @@
 ---
 title: "Pattern Index"
-description: "Index of all 15 self-describing interface patterns with links and one-line descriptions"
+description: "Index of all 20 self-describing interface patterns with links and one-line descriptions"
 status: draft
 tags: [index, patterns, navigation]
 ---
 
 # Pattern Index
 
-15 design patterns for self-describing interfaces. Each pattern was extracted from real friction points encountered when building agent-facing APIs.
+20 design patterns for self-describing interfaces. Each pattern was extracted from real friction points encountered when building agent-facing APIs.
 
 | # | Pattern | Core Rule |
 |---|---------|-----------|
@@ -26,13 +26,8 @@ tags: [index, patterns, navigation]
 | 13 | [Onboarding as Structured Data](13-onboarding-structured-data.md) | Steps as method+endpoint+headers, not prose |
 | 14 | [Anti-Pattern Documentation](14-anti-pattern-documentation.md) | Known failure modes in the tool registry |
 | 15 | [WebMCP / Tool Registration](15-webmcp-tool-registration.md) | `name`, `description`, `inputSchema` align with tool protocols |
-
-## Coming Soon
-
-Patterns 16-20 are under team review:
-
-- **Pattern 16**: Schema Versioning
-- **Pattern 17**: Idempotent Writes
-- **Pattern 18**: Async Operations
-- **Pattern 19**: Cursor Pagination
-- **Pattern 20**: Health Endpoints
+| 16 | [Schema Versioning](16-schema-versioning.md) | Every schema change gets a version. Silent drift is silent corruption. |
+| 17 | [Idempotent Writes](17-idempotent-writes.md) | Write operations accept an idempotency key. Timeout + retry must not duplicate. |
+| 18 | [Async Operations](18-async-operations.md) | Long-running operations return immediately with a status polling URL. |
+| 19 | [Cursor-Based Pagination](19-cursor-pagination.md) | Paginate with opaque cursors, not numeric offsets. |
+| 20 | [Health Endpoint](20-health-endpoint.md) | Expose per-service health status, not just up/down. |

@@ -1,13 +1,13 @@
 ---
 title: "Agentic API Standard"
-description: "15 design patterns for self-describing, machine-first interfaces -- APIs, structured files, knowledge bases"
+description: "20 design patterns for self-describing, machine-first interfaces -- APIs, structured files, knowledge bases"
 status: draft
 tags: [standard, api-design, agent-facing, self-describing, machine-first]
 ---
 
 # Agentic API Standard
 
-Every interface an agent touches -- HTTP API, file directory, markdown document -- should be self-describing, navigable, and recoverable. An agent should never need external documentation to use an interface. It should never hit a dead end without knowing how to recover. It should never guess what parameters to send, what responses to expect, or what went wrong. This standard codifies 15 design patterns that together produce interfaces where the response IS the documentation.
+Every interface an agent touches -- HTTP API, file directory, markdown document -- should be self-describing, navigable, and recoverable. An agent should never need external documentation to use an interface. It should never hit a dead end without knowing how to recover. It should never guess what parameters to send, what responses to expect, or what went wrong. This standard codifies 20 design patterns that together produce interfaces where the response IS the documentation.
 
 ## Origin
 
@@ -35,8 +35,11 @@ Born from building an agent-facing API where three AI agents discovered 20 frict
 | 13 | [Onboarding as Structured Data](patterns/13-onboarding-structured-data.md) | Steps as method+endpoint+headers, not prose |
 | 14 | [Anti-Pattern Documentation](patterns/14-anti-pattern-documentation.md) | Known failure modes in the tool registry |
 | 15 | [WebMCP / Tool Registration](patterns/15-webmcp-tool-registration.md) | `name`, `description`, `inputSchema` align with tool protocols |
-
-Patterns 16-20 are coming from team review: schema versioning, idempotent writes, async operations, cursor pagination, health endpoints.
+| 16 | [Schema Versioning](patterns/16-schema-versioning.md) | Every schema change gets a version. Silent drift is silent corruption. |
+| 17 | [Idempotent Writes](patterns/17-idempotent-writes.md) | Write operations accept an idempotency key. Timeout + retry must not duplicate. |
+| 18 | [Async Operations](patterns/18-async-operations.md) | Long-running operations return immediately with a status polling URL. |
+| 19 | [Cursor-Based Pagination](patterns/19-cursor-pagination.md) | Paginate with opaque cursors, not numeric offsets. |
+| 20 | [Health Endpoint](patterns/20-health-endpoint.md) | Expose per-service health status, not just up/down. |
 
 ## Extensions
 
@@ -51,7 +54,7 @@ The patterns extend beyond HTTP. Markdown frontmatter functions as a manifest. A
 |------|----------|------|
 | [Bronze](compliance/bronze.md) | 1, 3, 4, 9, 10 | Minimum for any new endpoint |
 | [Silver](compliance/silver.md) | Bronze + 2, 6, 7, 11 | Required before public release |
-| [Gold](compliance/gold.md) | All 15 | Target for all production APIs |
+| [Gold](compliance/gold.md) | All 20 | Target for all production APIs |
 
 ## Contributing
 

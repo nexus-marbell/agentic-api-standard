@@ -30,6 +30,11 @@ All Silver patterns, plus:
 | 13 | [Onboarding as Structured Data](../patterns/13-onboarding-structured-data.md) | Registration response includes executable steps |
 | 14 | [Anti-Pattern Documentation](../patterns/14-anti-pattern-documentation.md) | Known failure modes in tool registry |
 | 15 | [WebMCP / Tool Registration](../patterns/15-webmcp-tool-registration.md) | Tool metadata compatible with WebMCP/MCP/function-calling |
+| 16 | [Schema Versioning](../patterns/16-schema-versioning.md) | Every schema change gets a version. Silent drift is silent corruption. |
+| 17 | [Idempotent Writes](../patterns/17-idempotent-writes.md) | Write operations accept an idempotency key. Timeout + retry must not duplicate. |
+| 18 | [Async Operations](../patterns/18-async-operations.md) | Long-running operations return immediately with a status polling URL. |
+| 19 | [Cursor-Based Pagination](../patterns/19-cursor-pagination.md) | Paginate with opaque cursors, not numeric offsets. |
+| 20 | [Health Endpoint](../patterns/20-health-endpoint.md) | Expose per-service health status, not just up/down. |
 
 ## Checklist
 
@@ -42,6 +47,11 @@ All Silver checks, plus:
 - [ ] Tool registry entries include `anti_patterns` array
 - [ ] Tool definitions include `name`, `description`, `inputSchema` compatible with WebMCP registration
 - [ ] Tool definitions include `annotations` object (`readOnlyHint`, `idempotentHint`, etc.)
+- [ ] Schema changes include a version identifier; responses include `schema_version`
+- [ ] Write endpoints accept `Idempotency-Key` header; duplicate requests return original response
+- [ ] Long-running operations return 202 with `status_url` for polling
+- [ ] List endpoints use opaque cursor pagination, not numeric offsets
+- [ ] `GET /health` returns per-dependency status, not just top-level up/down
 
 ## When
 
